@@ -18,4 +18,23 @@ h1 {
 	color: #fff;
 	font-size: 1.2em;
 	font-weight: 700;
+	border-radius: 5px;
+	border: 0;
+	cursor: pointer;
+}
+
+.cx1{
+	width: 320px;
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #66bbff;
+	border-radius: 5px;
+}
+
+.cx2{
+	width: 160px;
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #66bbff;
+	border-radius: 5px;
 }
