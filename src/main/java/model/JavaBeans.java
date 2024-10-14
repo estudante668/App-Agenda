@@ -26,6 +26,7 @@ public class JavaBeans {
 	public void setIdcon(String idcon) {
 		this.idcon = idcon;
 	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -43,6 +44,11 @@ public class JavaBeans {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	@Override
+	public String toString() {
+		return "JavaBeans [idcon=" + idcon + ", nome=" + nome + ", fone=" + fone + ", email=" + email + "]";
 	}
 }
 
