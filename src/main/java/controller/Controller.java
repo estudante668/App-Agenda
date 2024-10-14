@@ -1,11 +1,13 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import model.DAO;
 
@@ -39,7 +41,19 @@ public class Controller extends HttpServlet {
 	
 	//listar contato
 	protected void contatos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("agenda.jsp");
+		
+		//objto q vai receber dados
+		ArrayList<JavaBeans> lista = dao.listarContatos();
+		
+		//prepara objto para enviar ao jsp
+		request.setAttribute("contatos", lista);
+		
+		//Clsse trabalha com resposta e requisiçoes do servlet 
+		RequestDispatcher rd = request.getRequestDispatcher("agenda.jsp");
+		
+		//envio ao jsp
+		rd.forward(request, response);
+		
 	}
 	
 	//Inserir contato

@@ -1,5 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <%@ page import="model.JavaBeans"%>
+ <%@ page import="java.util.ArrayList"%>
+<%
+  ArrayList<JavaBeans> lista = (ArrayList<JavaBeans>)
+  request.getAttribute("contatos");
+for(int i=0; i<lista.size(); i++){
+	out.println(lista.get(i).getIdcon());
+	out.println(lista.get(i).getNome());
+	out.println(lista.get(i).getFone());
+	out.println(lista.get(i).getEmail());
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>

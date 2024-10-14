@@ -28,18 +28,6 @@ public class DAO {
 		}
 	}
 	
-	//teste
-	
-	public void texte() {
-		try {
-			Connection con = conectar();
-			System.out.println("Conectado: "+ con);
-			con.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-	
 	public void inseriContato(JavaBeans jb) {
 		String create = "insert into contatos (nome,fone,email) values (?,?,?)";
 		try {
@@ -60,6 +48,7 @@ public class DAO {
 	}
 	
 	public ArrayList<JavaBeans> listarContatos(){
+		ArrayList<JavaBeans> contatos =  new ArrayList<>();
 		String read = "select * from contatos order by nome";
 		try {
 			Connection con = conectar();
@@ -70,7 +59,13 @@ public class DAO {
 				String idcon = rs.getString(1);
 				String nome = rs.getString(2);
 				String fone = rs.getString(3);
+				String email = rs.getString(4);
+				contatos.add(new JavaBeans(idcon, nome, fone, email));
 			}
+			
+			con.close();
+			return contatos;
+			
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
